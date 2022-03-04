@@ -7,6 +7,7 @@ terraform {
     }
   }
 }
+
 provider "aws" {
   region = var.region
 }
@@ -24,4 +25,19 @@ resource "aws_instance" "contest_simulation" {
 
 output "public_ip" {
   value = aws_instance.contest_simulation.public_ip
+}
+
+# Reference:
+# https://stackoverflow.com/questions/62403030/terraform-wait-till-the-instance-is-reachable
+# https://www.terraform.io/language/resources/provisioners/remote-exec
+resource "null_resource" "wait_connection" {
+  provisioner "remote-exec" {
+    connection {
+      host        = aws_instance.contest_simulation.public_ip
+      user        = "ubuntu"
+      private_key = file(var.key_path)
+    }
+
+    inline = ["echo 'connected!'"]
+  }
 }

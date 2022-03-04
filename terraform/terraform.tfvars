@@ -1,1 +1,2 @@
-region = "ap-northeast-1"
+region   = "ap-northeast-1"
+key_path = "CHANGE IT"
