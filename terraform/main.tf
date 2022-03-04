@@ -13,12 +13,12 @@ provider "aws" {
 
 resource "aws_instance" "contest_simulation" {
   launch_template {
-    name    = "contest-simulator-template"
+    name = "contest-simulator-template"
   }
   associate_public_ip_address = true
 
   tags = {
-    Name = "Learn-CloudInit"
+    Name = "ContestSimulator"
   }
 }
 
