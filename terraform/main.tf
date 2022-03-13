@@ -17,7 +17,7 @@ resource "aws_instance" "contest_simulation" {
     name = "contest-simulator-template"
   }
   associate_public_ip_address = true
-
+  instance_type               = var.instance_type
   tags = {
     Name = "ContestSimulator"
   }
