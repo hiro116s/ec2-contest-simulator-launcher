@@ -2,3 +2,5 @@ setup.sh
 terraform/.terraform
 terraform/terraform.tfstate*
 terraform/.terraform.lock.hcl
+terraform/run.sh
+terraform/terraform.tfvars

@@ -1,3 +1,4 @@
 terraform apply -auto-approve
-ssh -oStrictHostKeyChecking=no ubuntu@$(terraform output -raw public_ip) -i $KEY_PATH ./run.sh
+scp -i $KEY_PATH -oStrictHostKeyChecking=no run.sh ubuntu@$(terraform output -raw public_ip):~
+ssh -i $KEY_PATH -oStrictHostKeyChecking=no ubuntu@$(terraform output -raw public_ip) ./run.sh
 terraform destroy -auto-approve
