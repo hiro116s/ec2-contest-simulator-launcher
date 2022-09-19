@@ -7,6 +7,6 @@ variable "key_path" {
 }
 
 variable "instance_type" {
-  default     = "c5.24xlarge"
+  default     = "t2.small"
   description = "Instance type for running simulation in AWS"
 }

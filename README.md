@@ -5,7 +5,7 @@
 region   = "ap-northeast-1"
 key_path = "/path/to/your/ssh/key"
 ```
-2. Create `run.sh` file under `terraform` directly incluing the scripts you want to run in the ec2 instance.
+2. Create `run.sh` file under `terraform` directory incluing the scripts you want to run in the ec2 instance.
 ## How to start simulation
 ```
 cd terraform
