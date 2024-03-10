@@ -14,7 +14,7 @@ provider "aws" {
 
 resource "aws_instance" "contest_simulation" {
   launch_template {
-    name = "contest-simulator-template"
+    name = local.launch_template_name
   }
   associate_public_ip_address = true
   instance_type               = var.instance_type
@@ -25,6 +25,14 @@ resource "aws_instance" "contest_simulation" {
 
 output "public_ip" {
   value = aws_instance.contest_simulation.public_ip
+}
+
+output "instance_id" {
+  value = aws_instance.contest_simulation.id
+}
+
+output "launch_template_name" {
+  value = local.launch_template_name
 }
 
 # Reference:
@@ -40,4 +48,8 @@ resource "null_resource" "wait_connection" {
 
     inline = ["echo 'connected!'"]
   }
+}
+
+locals {
+  launch_template_name = "contest-simulator-template"
 }
