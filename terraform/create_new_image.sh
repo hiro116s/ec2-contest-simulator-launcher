@@ -32,4 +32,4 @@ aws ec2 deregister-image --image-id $old_image_id
 aws ec2 delete-snapshot --snapshot-id $old_snapshot_id
 
 echo "# 8. Update default version"
-aws ec2 modify-launch-template --launch-template-name $$launch_template_name --default-version $new_version
+aws ec2 modify-launch-template --launch-template-name $launch_template_name --default-version $new_version
